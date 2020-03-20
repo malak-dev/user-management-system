@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AddGroup(props) {
+export default function EditUser(props) {
   return (
     <div>
       <p>Enter the group name</p>
@@ -18,7 +18,7 @@ export default function AddGroup(props) {
           />
         </div>
         <button type="submit" class="btn btn-primary">
-          Add
+          Edit
         </button>
       </div>
     </div>

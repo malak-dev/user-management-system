@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Users(props) {
 
@@ -21,7 +22,7 @@ export default function Users(props) {
             <td>younso</td>
             <td>malak-y@live.com</td>
             <td>1993-01-01</td>
-            <td><button>Edit</button></td>
+            <td><Link to="/editUser" ><button >Edit</button></Link></td>
             <td><button>Delete</button></td>
           </tr>
         </tbody>

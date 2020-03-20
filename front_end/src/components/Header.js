@@ -5,18 +5,22 @@ export default function Header(props) {
   return (
     <header >
       <nav>
+        <h1> User Management System</h1>
         <Link to="/">
-          <h1> User Mangagment System</h1>
+
           {" "}
           {/* <SpongeLogo /> */}
 
         </Link>
-        <button type="button" class="btn btn-primary">
-          <Link to="/addUser">+User</Link>
-        </button>
-        <button type="button" class="btn btn-primary">
-          <Link to="/addGroup">+Group</Link>
-        </button>
+
+        <Link to="/addUser"><button type="button" class="btn btn-primary">+User
+          </button>
+        </Link>
+        <Link to="/addGroup">
+          <button type="button" class="btn btn-primary">+Group
+          </button>
+        </Link>
+
       </nav>
     </header>
   );

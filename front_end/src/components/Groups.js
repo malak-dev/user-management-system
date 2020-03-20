@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Groups(props) {
 
@@ -7,21 +8,17 @@ export default function Groups(props) {
       <table className="table table-hover">
         <thead className="head">
           <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Date of birth</th>
+            <th scope="col">Group Name</th>
+            <th scope="col">Number of user</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>malka</td>
-            <td>younso</td>
-            <td>malak-y@live.com</td>
-            <td>1993-01-01</td>
-            <td><button>Edit</button></td>
+            <td>developers</td>
+            <td>20</td>
+            <td><button><Link to="/editGroup" ><button >Edit</button></Link></button></td>
             <td><button>Delete</button></td>
           </tr>
         </tbody>
