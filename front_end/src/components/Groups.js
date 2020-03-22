@@ -17,7 +17,7 @@ export default function Groups(props) {
         </thead>
         <tbody>
           <tr>
-            <td>developers</td>
+            <td><Link to="/group/user">developers</Link></td>
             <td>20</td>
             <td><Link to="/editUser" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
             <td><button type="button" class="btn btn-primary">Delete</button></td>
