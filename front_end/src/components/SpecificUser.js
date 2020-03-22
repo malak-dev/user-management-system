@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Groups from './Groups';
-import "./Users.scss"
+import "./SpecificUser.scss"
 
 export default function SpecificUsers(props) {
 

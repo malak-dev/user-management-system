@@ -5,7 +5,7 @@ export default function Groups(props) {
 
   return (
     <div>
-      <h>Groups table</h>
+      <h3>Groups table</h3>
       <table className="table table-hover">
         <thead className="head">
           <tr>

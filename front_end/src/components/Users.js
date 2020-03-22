@@ -8,7 +8,7 @@ export default function Users(props) {
     <div className="users">
       <main>
         <section>
-          <h>Users table</h>
+          <h3>Users table</h3>
           <table className="table table-hover">
             <thead className="head">
               <tr>
