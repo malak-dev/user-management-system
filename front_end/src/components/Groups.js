@@ -5,6 +5,7 @@ export default function Groups(props) {
 
   return (
     <div>
+      <h>Groups table</h>
       <table className="table table-hover">
         <thead className="head">
           <tr>
@@ -18,8 +19,8 @@ export default function Groups(props) {
           <tr>
             <td>developers</td>
             <td>20</td>
-            <td><button><Link to="/editGroup" ><button >Edit</button></Link></button></td>
-            <td><button>Delete</button></td>
+            <td><Link to="/editUser" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
+            <td><button type="button" class="btn btn-primary">Delete</button></td>
           </tr>
         </tbody>
       </table>

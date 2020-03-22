@@ -1,9 +1,10 @@
 import React from "react";
-
+import './Users.scss'
 export default function AddUser(props) {
   return (
-    <div>
+    <div className="add">
       <h1>Add a new user</h1>
+      <br />
       <div className="form_elements" >
         <div class="form-group">
           <input

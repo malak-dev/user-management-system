@@ -37,8 +37,7 @@ function App() {
             <Header />
             <br />
             <Users />
-            <br />
-            <Group />
+
           </Route>
 
         </Switch>

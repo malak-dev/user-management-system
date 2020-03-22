@@ -1,9 +1,10 @@
 import React from "react";
-
+import './Users.scss'
 export default function AddGroup(props) {
   return (
-    <div>
-      <p>Enter the group name</p>
+    <div className="add">
+      <h1>Add a new group</h1>
+      <br />
       <div className="form_elements" >
         <div class="form-group">
           <input
