@@ -10,8 +10,7 @@ import AddUser from './components/AddUser'
 import EditUser from './components/EditUser'
 //import EditGroup from './components/EditGroup'
 import SpecificUser from './components/SpecificUser'
-import { ReactComponent as Logo } from "./logo.jpg";
-
+import Logo from './components/Logo'
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,22 +24,27 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/addUser">
-            <Header />
+            <Logo />
             <AddUser />
           </Route>
           <Route path="/addGroup">
+            <Logo />
             <AddGroup />
           </Route>
           <Route path="/editUser">
+            <Logo />
             <EditUser />
           </Route>
           <Route path="/editGroup">
+            <Logo />
             <EditGroup />
           </Route>
           <Route path="/group/user">
+            <Logo />
             <SpecificUser />
           </Route>
           <Route path="/">
+            <Logo />
             <Header />
             <br />
             <Users />
