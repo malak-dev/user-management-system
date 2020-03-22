@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Groups from './Groups';
 import "./Users.scss"
-export default function Users(props) {
+
+export default function SpecificUsers(props) {
 
   return (
     <div className="users">
@@ -34,9 +35,7 @@ export default function Users(props) {
           </tbody>
         </table>
       </div>
-      <div className="m">
-        <Groups />
-      </div>
+
 
     </div>
   )

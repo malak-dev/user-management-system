@@ -9,6 +9,7 @@ import AddGroup from './components/AddGroup'
 import AddUser from './components/AddUser'
 import EditUser from './components/EditUser'
 //import EditGroup from './components/EditGroup'
+import SpecificUser from './components/SpecificUser'
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/editGroup">
             <EditGroup />
+          </Route>
+          <Route path="/group/user">
+            <SpecificUser />
           </Route>
           <Route path="/">
             <Header />
