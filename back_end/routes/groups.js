@@ -4,7 +4,6 @@ const router = require("express").Router();
 module.exports = db => {
 
 
-
   //update group
   router.put('/:group_id/update', (req, res) => {
     const group_id = req.params.group_id;
