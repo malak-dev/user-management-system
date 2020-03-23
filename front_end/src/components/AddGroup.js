@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import './Users.scss'
+import axios from 'axios'
+
+
 export default function AddGroup(props) {
 
 
@@ -10,6 +13,7 @@ export default function AddGroup(props) {
     const data = {
       name
     }
+    console.log(data)
     axios.post("/api/groups", data)
       .then((response) => {
         console.log(response)
@@ -20,7 +24,6 @@ export default function AddGroup(props) {
         console.log(res, "mm")
       })
   }
-
   return (
     <div className="add">
       <h1>Add a new group</h1>
