@@ -8,6 +8,7 @@ export default function AddUser(props) {
   const [email, setEmail] = useState("")
   const [last_name, setLast_name] = useState("")
   const [birthday, setBirthday] = useState("")
+  const [groupName, setGroupName] = useState("")
 
   const addUser = (first_name, last_name, email, birthday) => {
     let data = {
@@ -86,8 +87,8 @@ export default function AddUser(props) {
           />
         </div>
         <select>
-          <option value="1">Group1</option>
-          <option value="4">Group2</option>
+          <option value={groupName}>{groupName}</option>
+          <option value="2">Group2</option>
           <option value="3">Group3</option>
         </select>
         <br />

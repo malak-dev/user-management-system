@@ -3,6 +3,23 @@ require("dotenv").config();
 
 module.exports = db => {
 
+
+  //update user
+  router.put('/:user_id/update', (req, res) => {
+    const user_id = req.params.user_id;
+    const { first_name, last_name, email, birthday } = req.body
+    const query = {
+      text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4 where id=$2 RETURNING *",
+      values: [first_name, last_name, email, birthday, users_id]
+    };
+    db.query(query)
+      .then(resDb => {
+        console.log(resDb.rows);
+        res.json(resDb.rows);
+      })
+      .catch(err => console.log(err));
+  });
+
   router.delete('/:user_id/delete', (req, res) => {
     const user_id = req.params.user_id;
 
@@ -50,7 +67,7 @@ module.exports = db => {
   router.post("/", (req, res) => {
     console.log(req.body, "i ")
 
-    const [first_name, last_name, email, birthday] = req.body
+    const { first_name, last_name, email, birthday } = req.body
     const query = {
       text: "INSERT INTO users(first_name,last_name,email,date_of_birth) VALUES ($1,$2,$3,$4) RETURNING *;",
       values: [first_name, last_name, email, birthday]
@@ -60,10 +77,6 @@ module.exports = db => {
       .then(dbRes => console.log(dbRes))
       .catch(err => console.log(err));
   });
-
-
-
-
 
   return router;
 };
