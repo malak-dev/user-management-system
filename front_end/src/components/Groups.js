@@ -6,7 +6,7 @@ export default function Groups(props) {
 
   function getAllGroups() {
 
-    axios.get("http://localhost:3001/api/groups")
+    axios.get("/api/groups")
       .then(function (response) {
         console.log(response.data, "je te test");
       })
@@ -31,7 +31,7 @@ export default function Groups(props) {
           <tr>
             <td><Link to="/group/user">developers</Link></td>
             <td>20</td>
-            <td><Link to="/editUser" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
+            <td><Link to="/editgroup" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
             <td><button type="button" class="btn btn-primary">Delete</button></td>
           </tr>
         </tbody>

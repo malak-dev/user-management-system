@@ -9,7 +9,7 @@ export default function Users(props) {
 
   function getUsers() {
 
-    return axios.get('http://localhost:3001/api/users')
+    return axios.get('/api/users')
       .then(function (response) {
         console.log(response.data, "je te test");
       })

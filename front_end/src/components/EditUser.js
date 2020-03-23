@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import './Users.scss'
 export default function EditUser(props) {
+
+  const [first_name, setFirst_name] = useState("")
+  const [email, setEmail] = useState("")
+  const [last_name, setLast_name] = useState("")
+  const [birthday, setBirthday] = useState("")
+  const [groupName, setGroupName] = useState("")
+
   return (
     <div className="add">
       <h1>Edit user page</h1>
@@ -12,10 +19,10 @@ export default function EditUser(props) {
             name="first_name"
             type="text"
             placeholder="Enter user first name"
-          // value={first_name}
-          // onChange={event => {
-          //   setFirst_name(event.target.value);
-          // }}
+            value={first_name}
+            onChange={event => {
+              setFirst_name(event.target.value);
+            }}
           />
         </div>
         <div class="form-group">
@@ -25,37 +32,34 @@ export default function EditUser(props) {
             name="last_name"
             type="text"
             placeholder="Enter user last name"
-          // value={last_name}
-          // onChange={event => {
-          //   setLast_name(event.target.value);
-          // }}
+            value={last_name}
+            onChange={event => {
+              setLast_name(event.target.value);
+            }}
           />
         </div>
         <div class="form-group">
           <input
             class="form-control"
-            aria-describedby="emailHelp"
-            id="exampleInputEmail1"
             name="email"
             type="email"
             placeholder="Enter user email"
-          // value={email}
-          // onChange={event => {
-          //   setEmail(event.target.value);
-          // }}
+            value={email}
+            onChange={event => {
+              setEmail(event.target.value);
+            }}
           />
         </div>
         <div class="form-group">
-
           <input
             class="form-control"
             name="date_of_birth"
             type="text"
             placeholder="Enter the date of birth"
-          // value={password}
-          // onChange={event => {
-          //   setPassword(event.target.value);
-          // }}
+            value={birthday}
+            onChange={event => {
+              setBirthday(event.target.value);
+            }}
           />
         </div>
         <p>Move to another group</p>

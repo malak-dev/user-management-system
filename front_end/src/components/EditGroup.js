@@ -5,12 +5,12 @@ export default function EditGroup(props) {
   const [name, setName] = useState("")
 
 
-  const editGroup = (name, id) => {
+  const editGroup = (name) => {
     const data = {
       name,
-      id
+
     }
-    axios.put(`/api/groups/${id}/update`, data)
+    axios.put(`/api/groups/1/update`, data)
       .then((response) => {
         console.log(response)
       }).catch((err) => {
@@ -37,7 +37,7 @@ export default function EditGroup(props) {
             }}
           />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={() => editGroup(name, id)} >
+        <button type="submit" class="btn btn-primary" onClick={() => editGroup(name)} >
           Edit
         </button>
       </div>

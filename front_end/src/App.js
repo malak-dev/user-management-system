@@ -8,7 +8,6 @@ import Group from './components/Groups'
 import AddGroup from './components/AddGroup'
 import AddUser from './components/AddUser'
 import EditUser from './components/EditUser'
-//import EditGroup from './components/EditGroup'
 import SpecificUser from './components/SpecificUser'
 import Logo from './components/Logo'
 import EditGroup from './components/EditGroup';
@@ -21,9 +20,6 @@ import {
 
 
 function App() {
-
-
-
 
 
   return (
@@ -55,7 +51,6 @@ function App() {
             <Header />
             <Users />
           </Route>
-
         </Switch>
       </div>
     </Router>

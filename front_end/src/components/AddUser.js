@@ -62,8 +62,6 @@ export default function AddUser(props) {
         <div class="form-group">
           <input
             class="form-control"
-            aria-describedby="emailHelp"
-            id="exampleInputEmail1"
             name="email"
             type="email"
             placeholder="Enter user email"
