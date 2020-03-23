@@ -36,7 +36,7 @@ module.exports = db => {
       })
       .catch(err => console.log(err));
   });
-
+  // get all the groups
   router.get('/', (req, res) => {
     const query = {
       text: "select name, count(*)as number_of_users from groups GROUP BY name ;"

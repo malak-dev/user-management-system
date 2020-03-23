@@ -10,7 +10,7 @@ module.exports = db => {
     const { first_name, last_name, email, birthday } = req.body
     const query = {
       text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4 where id=$2 RETURNING *",
-      values: [first_name, last_name, email, birthday, users_id]
+      values: [first_name, last_name, email, birthday, user_id]
     };
     db.query(query)
       .then(resDb => {
@@ -19,7 +19,7 @@ module.exports = db => {
       })
       .catch(err => console.log(err));
   });
-
+  //delete user
   router.delete('/:user_id/delete', (req, res) => {
     const user_id = req.params.user_id;
 
