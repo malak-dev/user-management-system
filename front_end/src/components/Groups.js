@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 export default function Groups(props) {
 
+  function getAllGroups() {
+
+    axios.get("http://localhost:3001/api/groups")
+      .then(function (response) {
+        console.log(response.data, "je te test");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  getAllGroups();
   return (
     <div>
       <h3>Groups table</h3>

@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Groups from './Groups';
 import "./Users.scss"
+import axios from 'axios'
+
 export default function Users(props) {
+  const [users, setUsers] = useState("");
+
+  function getUsers() {
+
+    return axios.get('http://localhost:3001/api/users')
+      .then(function (response) {
+        console.log(response.data, "je te test");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+  useEffect(() => {
+
+    getUsers();
+
+  }, []);
 
   return (
     <div className="users">

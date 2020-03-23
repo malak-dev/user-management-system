@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Users from './components/Users'
 import './App.css';
 import Header from './components/Header'
@@ -11,14 +11,21 @@ import EditUser from './components/EditUser'
 //import EditGroup from './components/EditGroup'
 import SpecificUser from './components/SpecificUser'
 import Logo from './components/Logo'
+import EditGroup from './components/EditGroup';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-
 } from "react-router-dom";
-import EditGroup from './components/EditGroup';
+
+
+
 function App() {
+
+
+
+
+
   return (
     <Router>
       <div className="App">
@@ -46,9 +53,7 @@ function App() {
           <Route path="/">
             <Logo />
             <Header />
-            <br />
             <Users />
-
           </Route>
 
         </Switch>
