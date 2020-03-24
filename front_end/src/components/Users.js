@@ -20,7 +20,17 @@ export default function Users(props) {
       });
 
   }
+  function deleteUser(id) {
+    axios.delete(`http://localhost:3001/api/users/${id}/delete`)
+      .then(function (response) {
+        console.log(response.data, "delete")
+        getUsers()
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
+  }
   useEffect(() => {
 
     getUsers();
@@ -53,7 +63,7 @@ export default function Users(props) {
                   <td><Link to="/editUser" >
                     <button type="button" className="btn btn-primary">Edit</button>
                   </Link></td>
-                  <td><button type="button" className="btn btn-primary">Delete</button></td>
+                  <td><button type="button" className="btn btn-primary" onClick={() => deleteUser(data.id)}>Delete</button></td>
                 </tr>
               ))}
             </tbody>

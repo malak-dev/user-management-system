@@ -18,7 +18,7 @@ export default function AddUser(props) {
       birthday
     }
     console.log(data)
-    axios.post("/api/users", data)
+    axios.post("http://localhost:3001/api/users", data)
       .then((response) => {
         console.log(response)
       }).catch((err) => {

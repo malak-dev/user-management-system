@@ -53,7 +53,7 @@ export default function Groups(props) {
             <tr key={data.id}>
               <td><Link to="/group/user">{data.name}</Link></td>
               <td>{data.number_of_users}</td>
-              <td><Link to="/editgroup" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
+              <td><Link to="/editgroup" ><button type="button" class="btn btn-primary" onClick={props.editGroup}>Edit</button></Link></td>
               <td><Link to="/"><button type="button" class="btn btn-primary" onClick={() => deleteGroup(data.id)}>Delete</button></Link></td>
             </tr>
           ))}

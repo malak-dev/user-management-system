@@ -22,6 +22,33 @@ import {
 function App() {
 
 
+  const [groupInfo, setGroupInfo] = useState([]);
+
+  function getAllGroups() {
+    axios.get("http://localhost:3001/api/groups")
+      .then(function (response) {
+        console.log(response.data, "je te test");
+        setGroupInfo(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  const editGroup = (name, id) => {
+    const data = {
+      name,
+
+    }
+    axios.put(`/api/groups/${id}/update`, data)
+      .then((response) => {
+        console.log(response)
+      }).catch((err) => {
+        console.log(err)
+      })
+      .then(res => {
+        console.log(res, "mm")
+      })
+  }
   return (
     <Router>
       <div className="App">
@@ -40,7 +67,7 @@ function App() {
           </Route>
           <Route path="/editGroup">
             <Logo />
-            <EditGroup />
+            <EditGroup editGroup={editGroup} />
           </Route>
           <Route path="/group/user">
             <Logo />
