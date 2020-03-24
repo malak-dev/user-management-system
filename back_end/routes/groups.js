@@ -23,7 +23,6 @@ module.exports = db => {
   // delete group
   router.delete('/:group_id/delete', (req, res) => {
     const group_id = req.params.group_id;
-
     const query = {
       text: "delete from groups where id=$1",
       values: [group_id]

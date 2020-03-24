@@ -14,7 +14,7 @@ export default function AddGroup(props) {
       name
     }
     console.log(data)
-    axios.post("/api/groups", data)
+    axios.post("http://localhost:3001/api/groups", data)
       .then((response) => {
         console.log(response)
       }).catch((err) => {

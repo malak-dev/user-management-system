@@ -4,14 +4,16 @@ import Groups from './Groups';
 import "./Users.scss"
 import axios from 'axios'
 
+
 export default function Users(props) {
-  const [users, setUsers] = useState("");
+
+  const [usersInfo, setUsersInfo] = useState([]);
 
   function getUsers() {
-
-    return axios.get('/api/users')
+    return axios.get('http://localhost:3001/api/users')
       .then(function (response) {
-        console.log(response.data, "je te test");
+        setUsersInfo(response.data)
+        console.log(response.data, "users")
       })
       .catch(function (error) {
         console.log(error);
@@ -42,16 +44,18 @@ export default function Users(props) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>malka</td>
-                <td>younso</td>
-                <td>malak-y@live.com</td>
-                <td>1993-01-01</td>
-                <td><Link to="/editUser" >
-                  <button type="button" class="btn btn-primary">Edit</button>
-                </Link></td>
-                <td><button type="button" class="btn btn-primary">Delete</button></td>
-              </tr>
+              {usersInfo.map(data => (
+                <tr key={data.id}>
+                  <td>{data.first_name}</td>
+                  <td>{data.last_name}</td>
+                  <td>{data.email}</td>
+                  <td>{data.date_of_birth}</td>
+                  <td><Link to="/editUser" >
+                    <button type="button" className="btn btn-primary">Edit</button>
+                  </Link></td>
+                  <td><button type="button" className="btn btn-primary">Delete</button></td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
