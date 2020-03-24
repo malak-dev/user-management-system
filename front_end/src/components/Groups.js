@@ -20,6 +20,8 @@ export default function Groups(props) {
   function deleteGroup(id) {
     axios.delete(`http://localhost:3001/api/groups/${id}/delete`)
       .then(function (response) {
+        console.log(response.data, "delete")
+        getAllGroups()
       })
       .catch(function (error) {
         console.log(error);
@@ -29,6 +31,7 @@ export default function Groups(props) {
   useEffect(() => {
 
     getAllGroups();
+
 
   }, []);
 
@@ -51,7 +54,7 @@ export default function Groups(props) {
               <td><Link to="/group/user">{data.name}</Link></td>
               <td>{data.number_of_users}</td>
               <td><Link to="/editgroup" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
-              <td><button type="button" class="btn btn-primary" onClick={() => deleteGroup(data.id)}>Delete</button></td>
+              <td><Link to="/"><button type="button" class="btn btn-primary" onClick={() => deleteGroup(data.id)}>Delete</button></Link></td>
             </tr>
           ))}
         </tbody>

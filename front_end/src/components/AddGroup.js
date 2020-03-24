@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Users.scss'
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 
 export default function AddGroup(props) {
@@ -41,9 +42,9 @@ export default function AddGroup(props) {
             }}
           />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={() => addgroup(name)} >
+        <Link to="/"> <button type="submit" class="btn btn-primary" onClick={() => addgroup(name)} >
           Add
-        </button>
+        </button></Link>
       </div>
     </div>
   )
