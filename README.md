@@ -24,6 +24,15 @@ The app will be served at http://localhost:3000/ .
  4.Go to http://localhost:3000/ in your browser .
 
 
+## Screenshots
+This page, you can add a new user or group.
+And also, you can see all the exicting users in addition to the ability to edit and delete any user
+!["main page"](https://raw.githubusercontent.com/malak-dev/user-management-system/master/docs/main_page.png)
+
+!["add user "](https://raw.githubusercontent.com/malak-dev/user-management-system/master/docs/addUser.png)
+we can see all the existing groups and the user is able to click on any group to see the group users
+!["Group table "](https://raw.githubusercontent.com/malak-dev/user-management-system/master/docs/group_table.png)
+
 
 ## Dependencies
 Front-end:
