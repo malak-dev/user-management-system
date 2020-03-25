@@ -19,9 +19,9 @@ This is the very beginning of an interface to send out invitations to the users 
  2-Start the Back-end server using the npm run dev command .
  ## 
  3-Start the Front-end server using the npm start command,
-The app will be served at http://localhost:3002/ .
+The app will be served at http://localhost:3000/ .
 ## 
- 4.Go to http://localhost:3002/ in your browser .
+ 4.Go to http://localhost:3000/ in your browser .
 
 
 
