@@ -20,8 +20,7 @@ export default function SpecificUsers(props) {
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Birthday</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+
           </tr>
         </thead>
         <tbody>
@@ -31,10 +30,7 @@ export default function SpecificUsers(props) {
               <td>{data.last_name}</td>
               <td>{data.email}</td>
               <td>{data.date_of_birth}</td>
-              <td><Link to="/editUser" >
-                <button type="button" class="btn btn-primary">Edit</button>
-              </Link></td>
-              <td><button type="button" class="btn btn-primary">Delete</button></td>
+
             </tr>
           ))}
         </tbody>

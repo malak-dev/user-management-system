@@ -20,7 +20,6 @@ export default function Groups(props) {
           <h3>Groups table</h3>
           <table className="table table-hover">
             <thead className="head">
-
               <tr>
                 <th scope="col">Group Name</th>
                 <th scope="col">Number of user</th>

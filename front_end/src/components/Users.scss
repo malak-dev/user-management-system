@@ -1,6 +1,6 @@
 .users{
   text-align: center;
-
+   margin-right: 5%;
   table{
     border:2px solid black;
   
@@ -9,32 +9,26 @@
     }
   }
   main {
-  
     display: flex;
     justify-content: center;
     align-items: flex-start;
 
       section{
-        margin: 20px;
+        margin: 10px;
       }
   }
  
 }
-// .m{
-//   width: 40%;
-//   height: 40% !important;
-//   float: left;
 
-//   margin: 4%;
-//   text-align: center;
-//   border: 2px solid black;
-// }
 .add {
   margin-top: 10% !important;
   width: 45%;
   margin: auto;
+  button{
+    width: 20%;
+  }
 }
-select{
+select {
   width: 35%;
   margin: 2%;
   margin-bottom: 8%;

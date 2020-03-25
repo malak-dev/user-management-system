@@ -21,6 +21,7 @@ export default function Users(props) {
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Birthday</th>
+                <th scope="col">Group</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
               </tr>
@@ -32,6 +33,7 @@ export default function Users(props) {
                   <td>{data.last_name}</td>
                   <td>{data.email}</td>
                   <td>{data.date_of_birth}</td>
+                  <td>{data.name}</td>
                   <td><Link to={`/editUser/${data.id}`} >
                     <button type="button" className="btn btn-primary">Edit</button>
                   </Link></td>
@@ -40,10 +42,6 @@ export default function Users(props) {
               ))}
             </tbody>
           </table>
-
-        </section>
-        <section>
-
         </section>
       </main>
 

@@ -25,15 +25,13 @@ function App() {
 
   const [user, setUser] = useState([])
   const [usersInfo, setUsersInfo] = useState([]);
-
-  const [group, setGroup] = useState([])
+  const [groupInfo, setGroupInfo] = useState([]);
 
   //get all the users
   function getUsers() {
     return axios.get('http://localhost:3001/api/users')
       .then(function (response) {
         setUsersInfo(response.data)
-        console.log(response.data, "users")
       })
       .catch(function (error) {
         console.log(error);
@@ -44,7 +42,6 @@ function App() {
   function deleteUser(id) {
     axios.delete(`http://localhost:3001/api/users/delete/${id}`)
       .then((response) => {
-        console.log(response.data, "delete")
         getUsers()
         getAllGroups()
       })
@@ -99,13 +96,10 @@ function App() {
   }, []);
 
 
-  const [groupInfo, setGroupInfo] = useState([]);
-
   // get all the groups
   function getAllGroups() {
     axios.get("http://localhost:3001/api/groups")
       .then(function (response) {
-        console.log("all group", response.data);
         setGroupInfo(response.data)
       })
       .catch(function (error) {
@@ -117,7 +111,6 @@ function App() {
   function deleteGroup(id) {
     axios.delete(`http://localhost:3001/api/groups/${id}/delete`)
       .then(function (response) {
-        console.log(response.data, "delete")
         getAllGroups()
         getUsers()
       })
@@ -135,7 +128,6 @@ function App() {
     axios.post("http://localhost:3001/api/groups/new", data)
       .then((response) => {
         getAllGroups();
-        console.log("add", response.data)
 
       }).catch((err) => {
         console.log(err)
@@ -162,7 +154,7 @@ function App() {
     axios.get(`http://localhost:3001/api/users/${id}`)
       .then(function (response) {
         setUser(response.data)
-        console.log(response.data, "users")
+
       })
       .catch(function (error) {
         console.log(error);
@@ -184,24 +176,28 @@ function App() {
         <Switch>
           <Route path="/addUser">
             <Logo />
+            <br />
             <AddUser groupInfo={groupInfo}
               addUser={addUser} />
           </Route>
           <Route path="/addGroup">
             <Logo />
+            <br />
             <AddGroup addgroup={addgroup} />
           </Route>
-
           <Route path="/editUser/:id" >
             <Logo />
+            <br />
             <EditUser groupInfo={groupInfo} editUser={editUser} />
           </Route>
           <Route path="/editGroup/:id" >
             <Logo />
+            <br />
             <EditGroup editGroup={editGroup} />
           </Route>
           <Route path="/group/user">
             <Logo />
+            <br />
             <SpecificUser user={user} />
           </Route>
           <Route path="/">

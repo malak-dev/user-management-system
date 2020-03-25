@@ -8,14 +8,12 @@ module.exports = db => {
   router.put('/:group_id/update', (req, res) => {
     const group_id = req.params.group_id;
     const { name } = req.body
-    console.log(name, group_id, "ffff")
     const query = {
       text: "update groups set name=$1 where id=$2 RETURNING *",
       values: [name, group_id]
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -30,11 +28,11 @@ module.exports = db => {
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
   });
+
   // add a new group
   router.post('/new', function (req, res) {
     const { name } = req.body
@@ -45,20 +43,18 @@ module.exports = db => {
     };
     db.query(query)
       .then(resDb => {
-        console.log("add group", resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
   });
-
+  // get all the users
   router.get('/', (req, res) => {
     const query = {
-      text: "select groups.id,groups.name from groups"
+      text: "select groups.id,groups.name,count(users.id) as number_of_users from groups INNER JOIN users on users.group_id = groups.id GROUP BY groups.id "
     };
 
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -67,7 +63,7 @@ module.exports = db => {
   return router;
 };
 
-// get all the groups
+
 
 
 

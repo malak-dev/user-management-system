@@ -16,15 +16,11 @@ export default function EditUser(props) {
 
   const { groupInfo } = props
 
-
-
-
-
   return (
 
     <div className="add">
 
-      <h1>Edit user page</h1>
+      <h2>Edit user information</h2>
       <br />
       <div className="form_elements" >
         <div class="form-group">

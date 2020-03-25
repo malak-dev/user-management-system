@@ -3,20 +3,16 @@ require("dotenv").config();
 
 module.exports = db => {
 
-
-
   //update user
   router.put('/:user_id/update', (req, res) => {
     const user_id = req.params.user_id;
     const { first_name, last_name, email, date_of_birth, category } = req.body
-    console.log(req.body, user_id)
     const query = {
       text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4, group_id=$5 where id=$6 RETURNING *",
       values: [first_name, last_name, email, date_of_birth, Number(category), user_id]
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows, "hello");
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -25,14 +21,12 @@ module.exports = db => {
   //delete user
   router.delete('/delete/:user_id', (req, res) => {
     const user_id = req.params.user_id;
-
     const query = {
       text: "delete from users where id=$1",
       values: [user_id]
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -40,7 +34,6 @@ module.exports = db => {
 
   //add users
   router.post("/new", (req, res) => {
-    console.log("i ", req.body)
     const { first_name, last_name, email, birthday, group_id } = req.body
     const query = {
       text: "INSERT INTO users(first_name,last_name,email,date_of_birth, group_id) VALUES ($1,$2,$3,$4,$5) RETURNING *;",
@@ -48,7 +41,6 @@ module.exports = db => {
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows, "insert");
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -57,14 +49,12 @@ module.exports = db => {
   // get a specific users
   router.get('/:group_id', (req, res) => {
     const group_id = req.params.group_id;
-
     const query = {
       text: "select * from users where group_id =$1;",
       values: [group_id]
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -72,19 +62,15 @@ module.exports = db => {
 
   // get all the users
   router.get('/', (req, res) => {
-
     const query = {
-      text: "select * from users ;"
+      text: "select *,groups.name as groupName from users join groups on users.group_id = groups.id ;"
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
   });
-  // add a new user
-
 
   return router;
 };
