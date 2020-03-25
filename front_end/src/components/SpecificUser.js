@@ -11,10 +11,10 @@ export default function SpecificUsers(props) {
   console.log(user, "hiiii")
   return (
 
-    <div className="table">
+    <div className="users">
       <h1>Users Table</h1>
       <table className="table table-hover">
-        <thead className="head">
+        <thead className="thead-dark">
           <tr>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>

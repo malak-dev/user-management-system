@@ -11,8 +11,6 @@ export default function Users(props) {
   console.log(usersInfo, "users")
   return (
     <div className="users">
-
-
       <h3>Users table</h3>
       <table className="table table-hover">
         <thead className="thead-dark">

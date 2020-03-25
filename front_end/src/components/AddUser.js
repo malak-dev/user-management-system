@@ -70,7 +70,7 @@ export default function AddUser(props) {
             }}
           />
         </div>
-
+        <p> choose group</p>
         <select name="group_id" value={group_id}
           onChange={event => { setGroupid(event.target.value); }}>
           {groupInfo.map(data => (
