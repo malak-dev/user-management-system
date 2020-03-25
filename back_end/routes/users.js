@@ -7,7 +7,7 @@ module.exports = db => {
   router.put('/:user_id/update', (req, res) => {
     const user_id = req.params.user_id;
     const { first_name, last_name, email, date_of_birth, category } = req.body
-    console.log(req.body, user_id, "llllllll")
+
     const query = {
       text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4, group_id=$5 where id=$6 RETURNING *",
       values: [first_name, last_name, email, date_of_birth, Number(category), user_id]
@@ -69,7 +69,7 @@ module.exports = db => {
     db.query(query)
       .then(resDb => {
         res.json(resDb.rows);
-        console.log(resDb.rows, "get")
+
       })
       .catch(err => console.log(err));
   });

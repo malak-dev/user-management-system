@@ -36,7 +36,7 @@ module.exports = db => {
   // add a new group
   router.post('/new', function (req, res) {
     const { name } = req.body
-    console.log("nama", name)
+
     const query = {
       text: "INSERT INTO groups(name)VALUES($1) RETURNING *;",
       values: [name]
