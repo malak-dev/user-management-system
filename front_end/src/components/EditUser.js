@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import './Users.scss'
+import axios from 'axios'
 import { Link, useParams } from "react-router-dom";
 export default function EditUser(props) {
 
   const [first_name, setFirst_name] = useState("")
   const [email, setEmail] = useState("")
   const [last_name, setLast_name] = useState("")
-  const [birthday, setBirthday] = useState("")
-  const [groupName, setGroupName] = useState("")
+  const [date_of_birth, setDate_of_birth] = useState("")
+  const [category, setCategory] = useState("")
 
 
 
   const { id } = useParams();
 
   const { groupInfo } = props
+
+
+
+
 
   return (
 
@@ -65,15 +70,16 @@ export default function EditUser(props) {
             name="date_of_birth"
             type="text"
             placeholder="Enter the date of birth"
-            value={birthday}
+            value={date_of_birth}
             onChange={event => {
-              setBirthday(event.target.value);
+              setDate_of_birth(event.target.value);
             }}
           />
         </div>
         <p>Move to another group</p>
 
-        <select >
+        <select name="category" value={category}
+          onChange={event => { setCategory(event.target.value); }}>
           {groupInfo.map(data => (
             <option value={data.id}>{data.name}</option>
           ))}
@@ -81,9 +87,9 @@ export default function EditUser(props) {
 
         <br />
         <div>
-          <button type="submit" class="btn btn-primary">
+          <Link to="/"><button type="submit" class="btn btn-primary" onClick={() => props.editUser(first_name, last_name, email, date_of_birth, category, id)}>
             Edit
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>

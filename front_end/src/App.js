@@ -73,7 +73,23 @@ function App() {
 
   }
   // edit user 
-
+  const editUser = (first_name, last_name, email, date_of_birth, category, id) => {
+    const data = {
+      first_name,
+      last_name,
+      email,
+      date_of_birth,
+      category
+    }
+    console.log(data)
+    axios.put(`http://localhost:3001/api/users/${id}/update`, data)
+      .then(function (response) {
+        getUsers();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   useEffect(() => {
 
@@ -103,6 +119,7 @@ function App() {
       .then(function (response) {
         console.log(response.data, "delete")
         getAllGroups()
+        getUsers()
       })
       .catch(function (error) {
         console.log(error);
@@ -140,7 +157,7 @@ function App() {
         console.log(error);
       });
   }
-
+  // get specific user
   const getUser = (id) => {
     axios.get(`http://localhost:3001/api/users/${id}`)
       .then(function (response) {
@@ -177,7 +194,7 @@ function App() {
 
           <Route path="/editUser/:id" >
             <Logo />
-            <EditUser groupInfo={groupInfo} />
+            <EditUser groupInfo={groupInfo} editUser={editUser} />
           </Route>
           <Route path="/editGroup/:id" >
             <Logo />

@@ -70,10 +70,14 @@ export default function AddUser(props) {
             }}
           />
         </div>
-        {groupInfo.map(data => (
-          <button value={group_id} onClick={(event) => { setGroupid(data.id) }}>{data.name}</button>
 
-        ))}
+        <select name="group_id" value={group_id}
+          onChange={event => { setGroupid(event.target.value); }}>
+          {groupInfo.map(data => (
+            <option value={data.id}>{data.name}</option>
+          ))}
+        </select>
+        <br />
         <Link to="/"> <button type="submit" class="btn btn-primary" onClick={() => props.addUser(first_name, last_name, email, birthday, group_id)}>
           Add
           </button></Link>

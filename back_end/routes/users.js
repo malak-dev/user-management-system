@@ -6,20 +6,22 @@ module.exports = db => {
 
 
   //update user
-  router.put('/update/:user_id', (req, res) => {
+  router.put('/:user_id/update', (req, res) => {
     const user_id = req.params.user_id;
-    const { first_name, last_name, email, birthday } = req.body
+    const { first_name, last_name, email, date_of_birth, category } = req.body
+    console.log(req.body, user_id)
     const query = {
-      text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4 where id=$2 RETURNING *",
-      values: [first_name, last_name, email, birthday, user_id]
+      text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4, group_id=$5 where id=$6 RETURNING *",
+      values: [first_name, last_name, email, date_of_birth, Number(category), user_id]
     };
     db.query(query)
       .then(resDb => {
-        console.log(resDb.rows);
+        console.log(resDb.rows, "hello");
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
   });
+
   //delete user
   router.delete('/delete/:user_id', (req, res) => {
     const user_id = req.params.user_id;
@@ -35,6 +37,7 @@ module.exports = db => {
       })
       .catch(err => console.log(err));
   });
+
   //add users
   router.post("/new", (req, res) => {
     console.log("i ", req.body)
@@ -66,6 +69,7 @@ module.exports = db => {
       })
       .catch(err => console.log(err));
   });
+
   // get all the users
   router.get('/', (req, res) => {
 
