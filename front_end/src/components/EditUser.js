@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import './Users.scss'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 export default function EditUser(props) {
 
   const [first_name, setFirst_name] = useState("")
@@ -8,8 +13,14 @@ export default function EditUser(props) {
   const [birthday, setBirthday] = useState("")
   const [groupName, setGroupName] = useState("")
 
+
+  console.log(props)
+
   return (
+
     <div className="add">
+      <h>{props.match.params.id}</h>
+      <h1>{props.groupInfo}</h1>
       <h1>Edit user page</h1>
       <br />
       <div className="form_elements" >

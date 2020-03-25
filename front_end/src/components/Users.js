@@ -32,7 +32,7 @@ export default function Users(props) {
                   <td>{data.last_name}</td>
                   <td>{data.email}</td>
                   <td>{data.date_of_birth}</td>
-                  <td><Link to="/editUser" >
+                  <td><Link to={`/editUser/${data.id}`} >
                     <button type="button" className="btn btn-primary">Edit</button>
                   </Link></td>
                   <td><button type="button" className="btn btn-primary" onClick={() => props.deleteUser(data.id)}>Delete</button></td>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from "react-dom";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Users from './components/Users'
@@ -22,7 +23,7 @@ import {
 function App() {
 
 
-
+  const [user, setUser] = useState([])
   const [usersInfo, setUsersInfo] = useState([]);
 
   const [group, setGroup] = useState([])
@@ -123,10 +124,38 @@ function App() {
 
   }
 
+  const getUser = (id) => {
+    axios.get(`http://localhost:3001/api/users/${id}`)
+      .then(function (response) {
+        setUser(response.data)
+        console.log(response.data, "users")
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+
+
+  //edit group
+  const editGroup = (id, name) => {
+    const data = {
+      name,
+      id
+    }
+    console.log(data)
+    axios.put(`http://localhost:3001/api/groups/${id}/update`, data)
+      .then(function (response) {
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   useEffect(() => {
 
     getAllGroups();
-
+    getUser()
 
   }, []);
 
@@ -144,17 +173,15 @@ function App() {
             <Logo />
             <AddGroup addgroup={addgroup} />
           </Route>
-          <Route path="/editUser">
-            <Logo />
-            <EditUser usersInfo={usersInfo} />
+          <Route path="/editUser/:id" groupInfo={groupInfo} component={EditUser} >
+
           </Route>
-          <Route path="/editGroup">
-            <Logo />
-            <EditGroup />
+          <Route path="/editGroup/:id" component={EditGroup} >
+
           </Route>
           <Route path="/group/user">
             <Logo />
-            <SpecificUser />
+            <SpecificUser user={user} />
           </Route>
           <Route path="/">
             <Logo />
@@ -162,8 +189,7 @@ function App() {
             <Users
               deleteUser={deleteUser} usersInfo={usersInfo}
             />
-            <Groups groupInfo={groupInfo} deleteGroup={deleteGroup}
-            />
+            <Groups groupInfo={groupInfo} deleteGroup={deleteGroup} getUser={getUser} />
           </Route>
         </Switch>
       </div>

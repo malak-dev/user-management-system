@@ -9,24 +9,8 @@ export default function Groups(props) {
   const groupInfo = props.groupInfo
   const deleteGroup = props.deleteGroup
 
-  const editGroup = (id, name) => {
-    const data = {
-      name,
-      id
-    }
-    console.log(data)
-    axios.put(`http://localhost:3001/api/groups/${id}/update`, data)
-      .then(function (response) {
-
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-  useEffect(() => {
 
 
-  }, []);
 
 
   return (
@@ -47,9 +31,10 @@ export default function Groups(props) {
             <tbody>
               {groupInfo.map(data => (
                 <tr key={data.id}>
-                  <td><Link to="/group/user">{data.name}</Link></td>
+                  <td><Link to="/group/user/" onClick={() => props.getUser(data.id)} >{data.name}</Link></td>
                   <td>{data.number_of_users}</td>
-                  <td><Link to="/editgroup" ><button type="button" class="btn btn-primary">Edit</button></Link></td>
+                  <td><Link to={`/editGroup/${data.id}`} ><button type="button" class="btn btn-primary"
+                  >Edit</button></Link></td>
 
                   <td><Link to="/"><button type="button" class="btn btn-primary" onClick={() => props.deleteGroup(data.id)}>Delete</button></Link></td>
                 </tr>

@@ -5,24 +5,10 @@ import axios from 'axios'
 import "./SpecificUser.scss"
 
 export default function SpecificUsers(props) {
-  const [user, setUser] = useState([])
 
-  // const getUser = () => {
-  //   axios.get(`http://localhost:3001/api/users/${id}`)
-  //     .then(function (response) {
-  //       setUser(response.data)
-  //       console.log(response.data, "users")
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
+  const { user } = props
 
-  // useEffect(() => {
-  //   getUser()
-
-  // }, []);
-
+  console.log(user, "hiiii")
   return (
 
     <div className="table">
@@ -39,17 +25,17 @@ export default function SpecificUsers(props) {
           </tr>
         </thead>
         <tbody>
-
-          <tr >
-            <td>{}</td>
-            <td>younso</td>
-            <td>malak-y@live.com</td>
-            <td>1993-01-01</td>
-            <td><Link to="/editUser" >
-              <button type="button" class="btn btn-primary">Edit</button>
-            </Link></td>
-            <td><button type="button" class="btn btn-primary">Delete</button></td>
-          </tr>
+          {user.map(data => (
+            <tr key={data.id}>
+              <td>{data.first_name}</td>
+              <td>{data.last_name}</td>
+              <td>{data.email}</td>
+              <td>{data.date_of_birth}</td>
+              <td><Link to="/editUser" >
+                <button type="button" class="btn btn-primary">Edit</button>
+              </Link></td>
+              <td><button type="button" class="btn btn-primary">Delete</button></td>
+            </tr>
           ))}
         </tbody>
       </table>
