@@ -4,8 +4,9 @@ require("dotenv").config();
 module.exports = db => {
 
 
+
   //update user
-  router.put('/:user_id/update', (req, res) => {
+  router.put('/update/:user_id', (req, res) => {
     const user_id = req.params.user_id;
     const { first_name, last_name, email, birthday } = req.body
     const query = {
@@ -20,7 +21,7 @@ module.exports = db => {
       .catch(err => console.log(err));
   });
   //delete user
-  router.delete('/:user_id/delete', (req, res) => {
+  router.delete('/delete/:user_id', (req, res) => {
     const user_id = req.params.user_id;
 
     const query = {
@@ -30,6 +31,21 @@ module.exports = db => {
     db.query(query)
       .then(resDb => {
         console.log(resDb.rows);
+        res.json(resDb.rows);
+      })
+      .catch(err => console.log(err));
+  });
+  //add users
+  router.post("/new", (req, res) => {
+    console.log("i ", req.body)
+    const { first_name, last_name, email, birthday, group_id } = req.body
+    const query = {
+      text: "INSERT INTO users(first_name,last_name,email,date_of_birth, group_id) VALUES ($1,$2,$3,$4,$5) RETURNING *;",
+      values: [first_name, last_name, email, birthday, group_id]
+    };
+    db.query(query)
+      .then(resDb => {
+        console.log(resDb.rows, "insert");
         res.json(resDb.rows);
       })
       .catch(err => console.log(err));
@@ -64,19 +80,7 @@ module.exports = db => {
       .catch(err => console.log(err));
   });
   // add a new user
-  router.post("/", (req, res) => {
-    console.log(req.body, "i ")
 
-    const { first_name, last_name, email, birthday } = req.body
-    const query = {
-      text: "INSERT INTO users(first_name,last_name,email,date_of_birth) VALUES ($1,$2,$3,$4) RETURNING *;",
-      values: [first_name, last_name, email, birthday]
-    };
-    db.query(query)
-    console.log("nnnn")
-      .then(dbRes => console.log(dbRes))
-      .catch(err => console.log(err));
-  });
 
   return router;
 };

@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import './Users.scss'
 
 export default function EditGroup(props) {
 
 
-
   const [name, setName] = useState("")
-  const { groupInfo } = props
-  console.log(groupInfo)
+  console.log(props, "edit")
 
 
 
   return (
-    <div>
+    <div className="add">
       <p>Enter the group name</p>
+
       <div className="form_elements" >
         <div class="form-group">
           <input
             class="form-control"
             name="group_name"
             type="text"
-            placeholder="Enter group name"
+            placeholder={props.name}
             value={name}
             onChange={event => {
               setName(event.target.value);
             }}
           />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={() => props.editGroup(name)} >
+        <button type="submit" class="btn btn-primary" onClick={() => props.editGroup(props.id, name)} >
           Edit
         </button>
       </div>
+
     </div>
   )
 

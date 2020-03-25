@@ -3,6 +3,5 @@ CASCADE;
 CREATE TABLE groups
 (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(225),
-  created_date Date
+  name VARCHAR(225)
 );

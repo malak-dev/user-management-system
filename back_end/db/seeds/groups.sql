@@ -1,14 +1,14 @@
 INSERT INTO groups
-  (name,created_date)
+  (name)
 VALUES
-  ('Developers', '2020-01-03');
+  ('Developers');
 
 INSERT INTO groups
-  (name,created_date)
+  (name)
 VALUES
-  ('Devops', '2020-01-03');
+  ('Devops');
 
 INSERT INTO groups
-  (name,created_date)
+  (name)
 VALUES
-  ('Manegers', '2020-01-03');
+  ('Manegers');

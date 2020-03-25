@@ -10,21 +10,7 @@ export default function AddGroup(props) {
 
   const [name, setName] = useState("")
 
-  const addgroup = (name) => {
-    const data = {
-      name
-    }
-    console.log(data)
-    axios.post("http://localhost:3001/api/groups", data)
-      .then((response) => {
-        console.log(response)
-      }).catch((err) => {
-        console.log(err)
-      })
-      .then(res => {
-        console.log(res, "mm")
-      })
-  }
+
   return (
     <div className="add">
       <h1>Add a new group</h1>
@@ -42,7 +28,7 @@ export default function AddGroup(props) {
             }}
           />
         </div>
-        <Link to="/"> <button type="submit" class="btn btn-primary" onClick={() => addgroup(name)} >
+        <Link to="/"> <button type="submit" class="btn btn-primary" onClick={() => props.addgroup(name)} >
           Add
         </button></Link>
       </div>

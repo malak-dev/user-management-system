@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Users.scss'
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 export default function AddUser(props) {
 
@@ -8,26 +9,12 @@ export default function AddUser(props) {
   const [email, setEmail] = useState("")
   const [last_name, setLast_name] = useState("")
   const [birthday, setBirthday] = useState("")
-  const [groupName, setGroupName] = useState("")
 
-  const addUser = (first_name, last_name, email, birthday) => {
-    let data = {
-      first_name,
-      last_name,
-      email,
-      birthday
-    }
-    console.log(data)
-    axios.post("http://localhost:3001/api/users", data)
-      .then((response) => {
-        console.log(response)
-      }).catch((err) => {
-        console.log(err)
-      })
-      .then(res => {
-        console.log(res, "mm")
-      })
-  }
+  const { groupInfo } = props
+
+  const [group_id, setGroupid] = useState("")
+
+
 
   return (
     <div className="add">
@@ -72,7 +59,6 @@ export default function AddUser(props) {
           />
         </div>
         <div class="form-group">
-
           <input
             class="form-control"
             name="date_of_birth"
@@ -84,19 +70,15 @@ export default function AddUser(props) {
             }}
           />
         </div>
-        <select>
-          <option value={groupName}>{groupName}</option>
-          <option value="2">Group2</option>
-          <option value="3">Group3</option>
-        </select>
-        <br />
-        <div>
-          <button type="submit" class="btn btn-primary" onClick={() => addUser(first_name, last_name, email, birthday)}>
-            Add
-          </button>
-        </div>
+        {groupInfo.map(data => (
+          <button value={group_id} onClick={(event) => { setGroupid(data.id) }}>{data.name}</button>
+
+        ))}
+        <Link to="/"> <button type="submit" class="btn btn-primary" onClick={() => props.addUser(first_name, last_name, email, birthday, group_id)}>
+          Add
+          </button></Link>
       </div>
-    </div>
+    </div >
   )
 
 }
