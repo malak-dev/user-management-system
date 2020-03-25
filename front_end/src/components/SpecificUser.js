@@ -30,7 +30,6 @@ export default function SpecificUsers(props) {
               <td>{data.last_name}</td>
               <td>{data.email}</td>
               <td>{data.date_of_birth}</td>
-
             </tr>
           ))}
         </tbody>

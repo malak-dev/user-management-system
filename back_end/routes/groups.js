@@ -50,7 +50,7 @@ module.exports = db => {
   // get all the users
   router.get('/', (req, res) => {
     const query = {
-      text: "select groups.id,groups.name,count(users.id) as number_of_users from groups INNER JOIN users on users.group_id = groups.id GROUP BY groups.id "
+      text: "SELECT * from groups"
     };
 
     db.query(query)

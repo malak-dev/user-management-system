@@ -6,9 +6,13 @@ VALUES
 INSERT INTO groups
   (name)
 VALUES
-  ('Devops');
+  ('DevOps');
 
 INSERT INTO groups
   (name)
 VALUES
-  ('Manegers');
+  ('HR');
+INSERT INTO groups
+  (name)
+VALUES
+  ('Product');

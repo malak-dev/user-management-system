@@ -22,7 +22,6 @@ export default function Groups(props) {
             <thead className="head">
               <tr>
                 <th scope="col">Group Name</th>
-                <th scope="col">Number of user</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
               </tr>
@@ -31,7 +30,6 @@ export default function Groups(props) {
               {groupInfo.map(data => (
                 <tr key={data.id}>
                   <td><Link to="/group/user/" onClick={() => props.getUser(data.id)} >{data.name}</Link></td>
-                  <td>{data.number_of_users}</td>
                   <td><Link to={`/editGroup/${data.id}`} ><button type="button" class="btn btn-primary"
                   >Edit</button></Link></td>
 

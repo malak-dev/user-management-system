@@ -1,5 +1,16 @@
 ### User Management System
 
+It's a simple user interface to manage users and the groups (teams) in a corporate.
+
+## Defining the terms:
+- Users: are the employees of the company.
+- Groups: are the teams the employees belong to.
+
+## Functionality:
+The user can be created, added to a group, edited and deleted. On the other hand, the group can have one or more user(s), and also the group can be created, edited and deleted.
+
+## Usage:
+This is the very beginning of an interface to send out invitations to the users for events.
 
 ## Getting Started
 

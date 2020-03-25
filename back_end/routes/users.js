@@ -7,6 +7,7 @@ module.exports = db => {
   router.put('/:user_id/update', (req, res) => {
     const user_id = req.params.user_id;
     const { first_name, last_name, email, date_of_birth, category } = req.body
+    console.log(req.body, user_id, "llllllll")
     const query = {
       text: "update users set first_name=$1, last_name=$2,email=$3,date_of_birth=$4, group_id=$5 where id=$6 RETURNING *",
       values: [first_name, last_name, email, date_of_birth, Number(category), user_id]
@@ -19,7 +20,7 @@ module.exports = db => {
   });
 
   //delete user
-  router.delete('/delete/:user_id', (req, res) => {
+  router.delete('/:user_id/delete', (req, res) => {
     const user_id = req.params.user_id;
     const query = {
       text: "delete from users where id=$1",
@@ -50,7 +51,7 @@ module.exports = db => {
   router.get('/:group_id', (req, res) => {
     const group_id = req.params.group_id;
     const query = {
-      text: "select * from users where group_id =$1;",
+      text: "select * from users where group_id =$1",
       values: [group_id]
     };
     db.query(query)
@@ -63,11 +64,12 @@ module.exports = db => {
   // get all the users
   router.get('/', (req, res) => {
     const query = {
-      text: "select *,groups.name as groupName from users join groups on users.group_id = groups.id ;"
+      text: "select groups.name, users.* from users join groups on group_id = groups.id ;"
     };
     db.query(query)
       .then(resDb => {
         res.json(resDb.rows);
+        console.log(resDb.rows, "get")
       })
       .catch(err => console.log(err));
   });
