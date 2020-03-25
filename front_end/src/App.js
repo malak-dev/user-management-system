@@ -40,7 +40,7 @@ function App() {
       });
 
   }
-  //delete specific user
+  //delete a specific user
   function deleteUser(id) {
     axios.delete(`http://localhost:3001/api/users/delete/${id}`)
       .then((response) => {
@@ -72,6 +72,8 @@ function App() {
       })
 
   }
+  // edit user 
+
 
   useEffect(() => {
 
@@ -123,6 +125,21 @@ function App() {
       })
 
   }
+  //edit group
+  const editGroup = (id, name) => {
+    const data = {
+      name,
+      id
+    }
+    console.log(data)
+    axios.put(`http://localhost:3001/api/groups/${id}/update`, data)
+      .then(function (response) {
+        getAllGroups();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   const getUser = (id) => {
     axios.get(`http://localhost:3001/api/users/${id}`)
@@ -136,22 +153,6 @@ function App() {
   }
 
 
-
-  //edit group
-  const editGroup = (id, name) => {
-    const data = {
-      name,
-      id
-    }
-    console.log(data)
-    axios.put(`http://localhost:3001/api/groups/${id}/update`, data)
-      .then(function (response) {
-
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
   useEffect(() => {
 
     getAllGroups();
@@ -173,11 +174,14 @@ function App() {
             <Logo />
             <AddGroup addgroup={addgroup} />
           </Route>
-          <Route path="/editUser/:id" groupInfo={groupInfo} component={EditUser} >
 
+          <Route path="/editUser/:id" >
+            <Logo />
+            <EditUser groupInfo={groupInfo} />
           </Route>
-          <Route path="/editGroup/:id" component={EditGroup} >
-
+          <Route path="/editGroup/:id" >
+            <Logo />
+            <EditGroup editGroup={editGroup} />
           </Route>
           <Route path="/group/user">
             <Logo />

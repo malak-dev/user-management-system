@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import './Users.scss'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export default function EditUser(props) {
 
   const [first_name, setFirst_name] = useState("")
@@ -14,13 +10,15 @@ export default function EditUser(props) {
   const [groupName, setGroupName] = useState("")
 
 
-  console.log(props)
+
+  const { id } = useParams();
+
+  const { groupInfo } = props
 
   return (
 
     <div className="add">
-      <h>{props.match.params.id}</h>
-      <h1>{props.groupInfo}</h1>
+
       <h1>Edit user page</h1>
       <br />
       <div className="form_elements" >
@@ -74,11 +72,13 @@ export default function EditUser(props) {
           />
         </div>
         <p>Move to another group</p>
+
         <select >
-          <option value="1">Group1</option>
-          <option value="4">Group2</option>
-          <option value="3">Group3</option>
+          {groupInfo.map(data => (
+            <option value={data.id}>{data.name}</option>
+          ))}
         </select>
+
         <br />
         <div>
           <button type="submit" class="btn btn-primary">
