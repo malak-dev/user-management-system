@@ -1,6 +1,8 @@
 .users{
   text-align: center;
-   margin-right: 5%;
+   width: 60%;
+   margin: auto;
+  
   table{
     border:2px solid black;
   
@@ -8,16 +10,7 @@
       background-color:pink;
     }
   }
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-      section{
-        margin: 10px;
-      }
-  }
- 
+  
 }
 
 .add {

@@ -40,7 +40,7 @@ function App() {
   }
   //delete a specific user
   function deleteUser(id) {
-    console.log(id, "delete")
+
     axios.delete(`http://localhost:3001/api/users/${id}/delete`)
       .then((response) => {
         getUsers()
@@ -60,7 +60,7 @@ function App() {
       birthday,
       group_id
     }
-    console.log(data)
+
     axios.post("http://localhost:3001/api/users/new", data)
       .then((response) => {
         getUsers();
@@ -79,7 +79,7 @@ function App() {
       date_of_birth,
       category
     }
-    console.log(data, "iam daats")
+
     axios.put(`http://localhost:3001/api/users/${id}/update`, data)
       .then(function (response) {
         getUsers();
@@ -125,7 +125,7 @@ function App() {
     const data = {
       name
     }
-    console.log(data)
+
     axios.post("http://localhost:3001/api/groups/new", data)
       .then((response) => {
         getAllGroups();
@@ -141,7 +141,7 @@ function App() {
       name,
       id
     }
-    console.log(data)
+
     axios.put(`http://localhost:3001/api/groups/${id}/update`, data)
       .then(function (response) {
         getAllGroups();
