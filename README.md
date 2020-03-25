@@ -54,3 +54,4 @@ Back-end:
 - Express
 - nodemon
 - PostgreSQL
+- node
